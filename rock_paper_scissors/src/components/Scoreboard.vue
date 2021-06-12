@@ -20,7 +20,6 @@
 </template>
 
 
-
 <style scoped>
 .scoreboard {
     display: flex;
