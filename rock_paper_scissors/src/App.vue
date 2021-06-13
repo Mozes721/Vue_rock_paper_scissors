@@ -94,7 +94,6 @@ export default {
     justify-content: center;
     
 }
-
 .scorecontainer {
   margin-top: 20px;
   padding: 20px;
