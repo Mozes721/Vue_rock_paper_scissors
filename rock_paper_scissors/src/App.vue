@@ -28,7 +28,7 @@
       <h2>My choice: {{player_choice}}</h2>
     </div>
     <div class="float-child2">
-      <Opponent @click="play" :opponent_choice="opponent_choice" ref="randomChoice" v-on:getChoice="updateOpponentScore($event)" v-bind:choice="opponent_choice"/>
+      <Opponent @click="play" v-on:getChoice="updateOpponentScore($event)" v-bind:choice="opponent_choice"/>
       <h2>My choice: {{opponent_choice}}</h2>
     </div>
     <div>{{ winner }}</div>
