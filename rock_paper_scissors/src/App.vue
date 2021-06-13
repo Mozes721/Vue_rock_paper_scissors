@@ -90,7 +90,6 @@ export default {
 </script>
 
 <style>
-
 *, .body {
     background-color: #292c34;
 }
