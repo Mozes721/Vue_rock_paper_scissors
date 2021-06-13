@@ -65,6 +65,7 @@ export default {
       },
     play() {
       const {player_choice, opponent_choice } = this;
+    
     if (player_choice === opponent_choice) {
       this.winner = "It is a tie!";
     } else if (
@@ -74,6 +75,8 @@ export default {
       ) {
           this.opponent_score++;
           this.winner = "Opponent won :(";
+    } else if (player_choice === "None") {
+      alert("You have to select your choise!")
     }
     else {
       this.player_score++;
