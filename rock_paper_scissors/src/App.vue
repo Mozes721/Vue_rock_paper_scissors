@@ -33,7 +33,7 @@
     </div>
     <div>{{ winner }}</div>
   </div>
-   
+  
 </template>
 
 <script>
