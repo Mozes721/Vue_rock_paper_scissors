@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-	<button class="button" v-on:click="randomChoice()">Random Choice</button>
+	<button id="child" class="button" v-on:click="randomChoice()">Random Choice</button>
   </div>
 </template>
 
@@ -12,6 +12,7 @@ export default {
       choice: ""
     };
   },
+props: [ 'opponent_choice'],
   methods: {
     randomChoice() {
 	const randomChoiceIndex = Math.floor(Math.random() * choices.length);

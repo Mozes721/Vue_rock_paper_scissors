@@ -28,10 +28,9 @@
       <h2>My choice: {{player_choice}}</h2>
     </div>
     <div class="float-child2">
-      <Opponent :opponent_choice="opponent_choice" ref="randomChoice" v-on:getChoice="updateOpponentScore($event)" v-bind:choice="opponent_choice"/>
+      <Opponent @click="play" :opponent_choice="opponent_choice" ref="randomChoice" v-on:getChoice="updateOpponentScore($event)" v-bind:choice="opponent_choice"/>
       <h2>My choice: {{opponent_choice}}</h2>
     </div>
-    <button @click.prevent="submit" @click="play" >play</button>
     <div>{{ winner }}</div>
   </div>
    
@@ -58,10 +57,6 @@ export default {
     };
   },
   methods: {
-
-    submit() {
-      this.$refs.randomChoice()
-    },
     updatePlayerChoice(choice) {
         this.player_choice = choice;
       },
