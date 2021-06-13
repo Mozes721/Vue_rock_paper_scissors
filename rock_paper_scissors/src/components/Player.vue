@@ -1,6 +1,8 @@
 <template>
   <div class="container">
-	<button class="button" @click="playerCounter">Press Me!</button>
+	<button v-on:click="rockChosen()">rock</button>
+  <button v-on:click="paperChosen()">paper</button>
+  <button v-on:click="scissorsChosen()">scissors</button>
   </div>
 </template>
 
@@ -8,13 +10,18 @@
 export default {
   data() {
     return {
-      counter: 0
+      choice: ""
     };
   },
   methods: {
-    playerCounter() {
-      this.counter++;
-      this.$emit('changeScore', this.counter)
+    rockChosen() {
+      this.$emit('getChoice', 'rock')
+    },
+    paperChosen() {
+      this.$emit('getChoice', 'paper')
+    },
+    scissorsChosen() {
+      this.$emit('getChoice', 'scissors')
     },
   }
 };

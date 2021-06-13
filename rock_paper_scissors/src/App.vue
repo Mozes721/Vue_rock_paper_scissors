@@ -24,11 +24,15 @@
   </div>
       <!-- Game -->
     <div class="float-child2">
-      <Player v-on:changeScore="updatePlayerScore($event)" />
+      <Player v-on:getChoice="updatePlayerChoice($event)" v-bind:choice="player_choice" />
+      <h2>My choice: {{player_choice}}</h2>
     </div>
     <div class="float-child2">
-      <Opponent v-on:changeScore="updateOpponentScore($event)" />
+      <Opponent :opponent_choice="opponent_choice" ref="randomChoice" v-on:getChoice="updateOpponentScore($event)" v-bind:choice="opponent_choice"/>
+      <h2>My choice: {{opponent_choice}}</h2>
     </div>
+    <button @click.prevent="submit" @click="play" >play</button>
+    <div>{{ winner }}</div>
   </div>
    
 </template>
@@ -36,28 +40,52 @@
 <script>
 import Player from './components/Player.vue'
 import Opponent from './components/Opponent.vue'
+
+const choices = ["rock", "paper", "scissors"];
 export default {
   name: 'App',
-  data() {
-    return {
-      title: "Counter",
-      player_score: 0,
-      opponent_score: 0,
-    };
-  },
-
   components: {
     Player,
     Opponent,
   },
+  data() {
+    return {
+      player_choice: "None",
+      opponent_choice: "None",
+      player_score: 0,
+      opponent_score: 0,
+      winner: "",
+    };
+  },
   methods: {
-    updatePlayerScore(score){
-      this.player_score=score
-  },
-  updateOpponentScore(score){
-      this.opponent_score=score
-  },
-}
+
+    submit() {
+      this.$refs.randomChoice()
+    },
+    updatePlayerChoice(choice) {
+        this.player_choice = choice;
+      },
+    updateOpponentScore(choice) {
+        this.opponent_choice = choice;
+      },
+    play() {
+      const {player_choice, opponent_choice } = this;
+    if (player_choice === opponent_choice) {
+      this.winner = "It is a tie!";
+    } else if (
+        (opponent_choice === "scissors" && player_choice === "paper") ||
+         (opponent_choice === "paper" && player_choice === "rock") ||
+         (opponent_choice === "rock" && player_choice === "scissors")
+      ) {
+          this.opponent_score++;
+          this.winner = "Opponent won :(";
+    }
+    else {
+      this.player_score++;
+      this.winner = "You won!";
+        }
+      }
+    }
 }
 </script>
 

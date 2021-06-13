@@ -1,20 +1,22 @@
 <template>
   <div class="container">
-	<button class="button" @click="opponentCounter">Press Me!</button>
+	<button class="button" v-on:click="randomChoice()">Random Choice</button>
   </div>
 </template>
 
 <script>
+const choices = ["rock", "paper", "scissors"];
 export default {
   data() {
     return {
-      counter: 0
+      choice: ""
     };
   },
   methods: {
-    opponentCounter() {
-      this.counter++;
-      this.$emit('changeScore', this.counter)
+    randomChoice() {
+	const randomChoiceIndex = Math.floor(Math.random() * choices.length);
+	this.choice = choices[randomChoiceIndex];
+	this.$emit('getChoice', this.choice);
     },
   }
 };
