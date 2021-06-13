@@ -30,7 +30,7 @@
       <Opponent v-on:changeScore="updateOpponentScore($event)" />
     </div>
   </div>
-  
+   
 </template>
 
 <script>
