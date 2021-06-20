@@ -22,13 +22,17 @@
       </div>
     </div>
   </div>
+  <div class="instructions">
+    <h3 >Press on your chosen image and then press PLAYGAME!</h3>
+  </div>
       <!-- Game -->
-    <div class="float-child2">
+    <div class="float-child1">
       <Player v-on:getChoice="updatePlayerChoice($event)" v-bind:choice="player_choice" />
       <h2>My choice: {{player_choice}}</h2>
     </div>
     <div class="float-child2">
       <Opponent @click="play" v-on:getChoice="updateOpponentScore($event)" v-bind:choice="opponent_choice"/>
+      <img type="button" src="./assets/vue_question.jpeg" /> 
       <h2>My choice: {{opponent_choice}}</h2>
     </div>
     <div>{{ winner }}</div>
@@ -90,6 +94,7 @@ export default {
 <style>
 *, .body {
     background-color: #292c34;
+    overflow: hidden;
 }
 * {
     margin: 0;
@@ -98,6 +103,15 @@ export default {
     box-sizing: border-box;
     font-family: Asap, sans-serif;
     font-weight: 700;
+}
+.instructions {
+  padding: 10px;
+  margin-left: 200px;
+  width: 70%;
+}
+.instructions h3 {
+  text-align: center;
+  border: 2px solid gold;
 }
 
 .header-container {
@@ -144,11 +158,15 @@ export default {
   
 }
 
-.float-child2 {
+.float-child1 {
   background-color:#292c34;
   width: 50%;
   float: left;
   padding: 20px;
+  margin-left:200px;
+}
+.float-child2 {
+  margin-top:200px;
 }
 h3 {
   background-color: aliceblue;

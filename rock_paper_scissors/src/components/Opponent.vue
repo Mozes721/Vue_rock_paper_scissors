@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-	<button id="child" class="button" v-on:click="randomChoice()">Random Choice</button>
+  <button v-on:click="randomChoice()"> PLAYGAME </button>
   </div>
 </template>
 
@@ -12,7 +12,7 @@ export default {
       choice: ""
     };
   },
-props: [ 'opponent_choice'],
+
   methods: {
     randomChoice() {
 	const randomChoiceIndex = Math.floor(Math.random() * choices.length);
@@ -24,5 +24,18 @@ props: [ 'opponent_choice'],
 </script>
 
 <style scoped>
-
+button {
+  margin: 0 auto;
+  margin-bottom: 20px;
+  padding: 15px 32px;
+  background-color: #4CAF50;
+  display: inline-block;
+  font-size: 16px;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #54e459;
+}
 </style>

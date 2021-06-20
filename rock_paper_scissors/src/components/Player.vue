@@ -1,8 +1,8 @@
 <template>
   <div class="container">
-	<button v-on:click="rockChosen()">rock</button>
-  <button v-on:click="paperChosen()">paper</button>
-  <button v-on:click="scissorsChosen()">scissors</button>
+	<img type="button" class="img" src="../assets/rock.jpeg" v-on:click="rockChosen()" />
+  <img type="button" class="img" src="../assets/paper.jpeg" v-on:click="paperChosen()" />
+  <img type="button" class="img" src="../assets/scissors.jpeg" v-on:click="scissorsChosen()" />
   </div>
 </template>
 
@@ -28,5 +28,16 @@ export default {
 </script>
 
 <style scoped>
+.container {
+  display: grid;
+  
+}
 
+.img {
+  margin: 10px;
+  height:200px;
+  width: 100px;
+  transform: rotate(90deg);
+  border-radius: 10px
+}
 </style>
