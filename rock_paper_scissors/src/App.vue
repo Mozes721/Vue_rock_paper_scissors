@@ -44,7 +44,6 @@
   </div>
    
 </template>
-
 <script>
 import Player from './components/Player.vue'
 import Opponent from './components/Opponent.vue'
