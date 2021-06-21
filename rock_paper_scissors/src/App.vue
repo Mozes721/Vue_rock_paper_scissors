@@ -59,7 +59,6 @@ export default {
     return {
       player_choice: "",
       opponent_choice: "",
-      opponent_image: "",
       player_score: 0,
       opponent_score: 0,
       winner: ""
@@ -71,7 +70,7 @@ export default {
       },
     updateOpponentScore(choice) {
         this.opponent_choice = choice;
-      },
+      }, 
     ImgSrc() {
       if (this.opponent_choice == "rock") {
         return "rock.jpeg"
