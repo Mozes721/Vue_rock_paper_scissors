@@ -28,14 +28,19 @@
       <!-- Game -->
     <div class="float-child1">
       <Player v-on:getChoice="updatePlayerChoice($event)" v-bind:choice="player_choice" />
-      <h2>My choice: {{player_choice}}</h2>
+      <h2 style="color:white">You chose: {{player_choice}}</h2>
     </div>
     <div class="float-child2">
       <Opponent @click="play" v-on:getChoice="updateOpponentScore($event)" v-bind:choice="opponent_choice"/>
-      <img type="button" src="./assets/vue_question.jpeg" /> 
-      <h2>My choice: {{opponent_choice}}</h2>
+      
+      <img type="button" v-if="!opponent_choice" src="./assets/vue_question.jpeg" /> 
+      <img class="opponent_img" type="button" v-if="!!opponent_choice" :src="require('./assets/'+ImgSrc())" />
+      
+      <h2 style="color:white">Opponents choice: {{opponent_choice}}</h2>
     </div>
-    <div>{{ winner }}</div>
+    <h1 class="winner" v-if="winner">
+      {{ winner }}
+    </h1>
   </div>
    
 </template>
@@ -53,11 +58,12 @@ export default {
   },
   data() {
     return {
-      player_choice: "None",
-      opponent_choice: "None",
+      player_choice: "",
+      opponent_choice: "",
+      opponent_image: "",
       player_score: 0,
       opponent_score: 0,
-      winner: "",
+      winner: ""
     };
   },
   methods: {
@@ -67,6 +73,17 @@ export default {
     updateOpponentScore(choice) {
         this.opponent_choice = choice;
       },
+    ImgSrc() {
+      if (this.opponent_choice == "rock") {
+        return "rock.jpeg"
+      }
+      else if (this.opponent_choice == "paper") {
+        return "paper.jpeg"
+      }
+      else  {
+        return "scissors.jpeg"
+      }
+    },
     play() {
       const {player_choice, opponent_choice } = this;
     
@@ -79,7 +96,7 @@ export default {
       ) {
           this.opponent_score++;
           this.winner = "Opponent won :(";
-    } else if (player_choice === "None") {
+    } else if (player_choice === "") {
       alert("You have to select your choise!")
     }
     else {
@@ -180,8 +197,21 @@ h3 {
   font-size: 40px;
 }
 
-.hands {
-  padding: 20px;
+
+.opponent_img {
+  transform: rotate(-90deg);
+  height:150px;
+  width: 140px;
+  padding-left: 20px;
+  border-radius: 10px;
+}
+.winner {
+  width: 320px;
+  padding: 10px;
+  border: 5px solid gray;
+  margin: 0;
+  background-color: coral;
+  color:#fff;
 }
 
 </style>

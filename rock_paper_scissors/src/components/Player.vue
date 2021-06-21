@@ -34,9 +34,9 @@ export default {
 }
 
 .img {
-  margin: 10px;
-  height:200px;
-  width: 100px;
+  margin: 20px;
+  height:150px;
+  width: 120px;
   transform: rotate(90deg);
   border-radius: 10px
 }
