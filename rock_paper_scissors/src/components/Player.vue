@@ -8,11 +8,7 @@
 
 <script>
 export default {
-  data() {
-    return {
-      choice: ""
-    };
-  },
+
   methods: {
     rockChosen() {
       this.$emit('getChoice', 'rock')
