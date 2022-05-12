@@ -21,12 +21,10 @@ export default {
     },
   }
 };
-</script>
-
 <style scoped>
 button {
   margin: 0 auto;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
   padding: 15px 32px;
   background-color: #4CAF50;
   display: inline-block;
