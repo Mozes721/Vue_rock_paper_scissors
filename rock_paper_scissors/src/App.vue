@@ -128,20 +128,17 @@ export default {
   text-align: center;
   border: 2px solid gold;
 }
-
 .header-container {
     background: #fff;
-    padding: 25px;
+    padding: 20px;
     text-align: center;
 }
-
 .header-container>h1 {
   background-color: #fff;
   color: #292c34;
   text-align: center;
   font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
-
 .scoreboard {
     display: flex;
     align-items: center;
@@ -152,7 +149,7 @@ export default {
   margin-top: 20px;
   padding: 20px;
   width: 25%;
-  height: 200px;
+  height: 150px;
   background-color:aliceblue;
   border: 3px solid rgb(68, 59, 151);
   border-radius: 10px;
@@ -164,7 +161,6 @@ export default {
   border-bottom: 2px solid #000;
   width:100%;
 }
-
 .float-child {
   background-color:aliceblue;
   width: 50%;
@@ -172,7 +168,6 @@ export default {
   padding: 20px;
   
 }
-
 .float-child1 {
   background-color:#292c34;
   width: 50%;
@@ -181,7 +176,7 @@ export default {
   margin-left:200px;
 }
 .float-child2 {
-  margin-top:200px;
+  margin-top:100px;
 }
 h3 {
   background-color: aliceblue;
@@ -194,8 +189,6 @@ h3 {
   padding: 1rem;
   font-size: 40px;
 }
-
-
 .opponent_img {
   transform: rotate(-90deg);
   height:150px;
@@ -211,5 +204,4 @@ h3 {
   background-color: coral;
   color:#fff;
 }
-
 </style>
