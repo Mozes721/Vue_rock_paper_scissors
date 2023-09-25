@@ -21,6 +21,8 @@ export default {
     },
   }
 };
+</script >
+
 <style scoped>
 button {
   margin: 0 auto;
